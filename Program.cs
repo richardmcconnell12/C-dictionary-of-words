@@ -28,16 +28,29 @@ namespace dictionaryWords
             Console.WriteLine(wordsAndDefinitions["Aesthetic"]);
             Console.WriteLine(wordsAndDefinitions["Montage"]);
 
-            /*
-                Below, loop over the wordsAndDefinitions dictionary to get the following output:
-                    The definition of (WORD) is (DEFINITION)
-                    The definition of (WORD) is (DEFINITION)
-                    The definition of (WORD) is (DEFINITION)
-            */
             foreach (KeyValuePair<string, string> word in wordsAndDefinitions)
             {
                 Console.WriteLine($"The definition of {word.Key} is {word.Value}");
             }
+
+            // List of defintions exercise
+            Console.WriteLine("Definitions after first exercise");
+            var dictionaryOfWords = new List<Dictionary<string, string>>();
+
+            var excitedWord = new Dictionary<string, string>();
+
+            excitedWord.Add("word", "excited");
+            excitedWord.Add("definition", "having, showing, or characterized by a heightened state of energy, enthusiasm, eagerness");
+            excitedWord.Add("example sentence", "I am excited to learn C#!");
+
+            dictionaryOfWords.Add(excitedWord);
+            dictionaryOfWords.Add(wordsAndDefinitions);
+
+            // Iterate the List of Dictionaries
+            foreach (var dict in dictionaryOfWords)
+                foreach (var moreWords in dict)
+                    Console.WriteLine($"{moreWords.Key} definition: {moreWords.Value}");
+
         }
     }
 }
